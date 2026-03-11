@@ -1,470 +1,453 @@
 <!DOCTYPE html>
 <html lang="en" class="transition-colors duration-500">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Michael Portfolio</title>
+    <title>Michael Portfolio</title>
 
-<script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<style>
+    <style>
 
-body{
-font-family: 'Montserrat', sans-serif;
-}
+      body{
+        font-family: 'Montserrat', sans-serif;
+      }
 
-/* animated gradient background */
+      /* animated gradient background */
 
-.gradient-bg{
-background: linear-gradient(-45deg,#4f46e5,#9333ea,#06b6d4,#3b82f6);
-background-size:400% 400%;
-animation: gradientMove 15s ease infinite;
-}
+      .gradient-bg{
+        background: linear-gradient(-45deg,#4f46e5,#9333ea,#06b6d4,#3b82f6);
+        background-size:400% 400%;
+        animation: gradientMove 15s ease infinite;
+      }
 
-@keyframes gradientMove{
-0%{background-position:0% 50%}
-50%{background-position:100% 50%}
-100%{background-position:0% 50%}
-}
+      @keyframes gradientMove{
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
+      }
 
-/* glassmorphism */
+      /* glassmorphism */
 
-.glass{
-backdrop-filter:blur(15px);
-background:rgba(255,255,255,0.08);
-border:1px solid rgba(255,255,255,0.2);
-}
+      .glass{
+        backdrop-filter:blur(15px);
+        background:rgba(255,255,255,0.08);
+        border:1px solid rgba(255,255,255,0.2);
+      }
 
-/* floating hero */
+      /* floating hero */
 
-@keyframes float{
-0%,100%{transform:translateY(0)}
-50%{transform:translateY(-15px)}
-}
+      @keyframes float{
+        0%,100%{transform:translateY(0)}
+        50%{transform:translateY(-15px)}
+      }
 
-.float{
-animation:float 6s ease-in-out infinite;
-}
+      .float{
+        animation:float 6s ease-in-out infinite;
+      }
 
-/* scroll reveal */
+      /* scroll reveal */
 
-.reveal{
-opacity:0;
-transform:translateY(30px);
-transition:all .8s ease;
-}
+      .reveal{
+        opacity:0;
+        transform:translateY(30px);
+        transition:all .8s ease;
+      }
 
-.reveal.active{
-opacity:1;
-transform:translateY(0);
-}
+      .reveal.active{
+        opacity:1;
+        transform:translateY(0);
+      }
 
-/* 3D card hover */
+      /* 3D card hover */
 
-.card3d{
-transform-style:preserve-3d;
-transition:transform .4s;
-}
+      .card3d{
+        transform-style:preserve-3d;
+        transition:transform .4s;
+      }
 
-.card3d:hover{
-transform:rotateY(8deg) rotateX(6deg) scale(1.05);
-}
+      .card3d:hover{
+        transform:rotateY(8deg) rotateX(6deg) scale(1.05);
+      }
 
-</style>
+    </style>
 
-</head>
+  </head>
 
-<body id="body" class="gradient-bg text-white min-h-screen transition-colors duration-500">
+  <body id="body" class="gradient-bg text-white min-h-screen transition-colors duration-500">
 
 
-<!-- NAVBAR -->
+    <!-- NAVBAR -->
 
-<header class="glass fixed w-full z-50">
+    <header class="glass fixed w-full z-50">
 
-<div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+      <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
 
-<h1 class="font-bold text-xl">
-MichaelMabunga
-</h1>
+        <h1 class="font-bold text-xl">
+        MichaelMabunga
+        </h1>
 
-<nav class="hidden md:flex gap-8">
+        <nav class="hidden md:flex gap-8">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
 
-<a href="#about">About</a>
-<a href="#projects">Projects</a>
-<a href="#contact">Contact</a>
+        <div class="flex items-center gap-4">
 
-</nav>
+          <button id="themeToggle">🌙</button>
 
-<div class="flex items-center gap-4">
+          <button id="menuBtn" class="md:hidden text-2xl">
+          ☰
+          </button>
 
-<button id="themeToggle">🌙</button>
+        </div>
 
-<button id="menuBtn" class="md:hidden text-2xl">
-☰
-</button>
+      </div>
 
-</div>
 
-</div>
+      <div id="mobileMenu" class="hidden px-6 pb-6 space-y-3 md:hidden">
 
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
 
-<div id="mobileMenu" class="hidden px-6 pb-6 space-y-3 md:hidden">
+      </div>
 
-<a href="#about">About</a>
-<a href="#projects">Projects</a>
-<a href="#contact">Contact</a>
+    </header>
 
-</div>
 
-</header>
 
+    <!-- HERO -->
 
+    <section class="min-h-screen flex items-center">
 
-<!-- HERO -->
+      <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 px-6">
 
-<section class="min-h-screen flex items-center">
+      <div>
 
-<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 px-6">
+        <h2 class="text-5xl font-bold mb-6">
+          Hi I'm  
+          <span class="text-cyan-300">Michael</span>
+        </h2>
 
-<div>
+        <h3 class="text-2xl mb-6">
+          <span id="typing"></span>
+        </h3>
 
-<h2 class="text-5xl font-bold mb-6">
+        <p class="opacity-80 mb-8">
+        I build high performance WordPress websites,
+        custom themes, and modern web interfaces.
+        </p>
 
-Hi I'm  
-<span class="text-cyan-300">Michael</span>
+        <a href="#projects" class="bg-cyan-400 text-gray-900 px-6 py-3 rounded-lg font-semibold">View Projects</a>
 
-</h2>
+        </a>
 
-<h3 class="text-2xl mb-6">
+      </div>
 
-<span id="typing"></span>
 
-</h3>
+        <div class="flex justify-center items-center">
 
-<p class="opacity-80 mb-8">
+          <div class="glass p-12 rounded-3xl float">
 
-I build high performance WordPress websites,
-custom themes, and modern web interfaces.
+            <img src="https://cdn-icons-png.flaticon.com/512/2721/2721297.png" width="150">
 
-</p>
+          </div>
 
-<a href="#projects" class="bg-cyan-400 text-gray-900 px-6 py-3 rounded-lg font-semibold">View Projects</a>
+        </div>
 
-</a>
+      </div>
 
-</div>
+    </section>
 
 
-<div class="flex justify-center items-center">
 
-<div class="glass p-12 rounded-3xl float">
+    <!-- ABOUT -->
 
-<img src="https://cdn-icons-png.flaticon.com/512/2721/2721297.png" width="150">
+    <section id="about" class="py-24 reveal">
 
-</div>
+      <div class="max-w-4xl mx-auto text-center px-6">
 
-</div>
+        <h3 class="text-3xl font-bold mb-6">About Me</h3>
 
-</div>
+        <p class="opacity-80">
+        Freelance developer with 5+ years experience building
+        WordPress websites using Elementor, Divi,
+        and custom development.
+        Focused on performance, UX and scalable solutions.
+        </p>
 
-</section>
+      </div>
 
+    </section>
 
+    <!-- PROJECT FILTER -->
 
-<!-- ABOUT -->
+    <section id="projects" class="py-24">
 
-<section id="about" class="py-24 reveal">
+      <div class="max-w-7xl mx-auto px-6">
 
-<div class="max-w-4xl mx-auto text-center px-6">
+        <h3 class="text-3xl font-bold text-center mb-10">
+        Projects
+        </h3>
 
-<h3 class="text-3xl font-bold mb-6">
-About Me
-</h3>
 
-<p class="opacity-80">
+        <div class="flex justify-center gap-4 mb-10">
 
-Freelance developer with 5+ years experience building
-WordPress websites using Elementor, Divi,
-and custom development.
+          <button class="filterBtn bg-white/20 px-4 py-2 rounded" data-filter="all">
+          All
+          </button>
 
-Focused on performance, UX and scalable solutions.
+          <button class="filterBtn bg-white/20 px-4 py-2 rounded" data-filter="wordpress">
+          WordPress
+          </button>
 
-</p>
+          <button class="filterBtn bg-white/20 px-4 py-2 rounded" data-filter="frontend">
+          Frontend
+          </button>
 
-</div>
+        </div>
 
-</section>
 
 
+        <div class="grid md:grid-cols-3 gap-8">
 
-<!-- PROJECT FILTER -->
+          <!-- CARD -->
 
-<section id="projects" class="py-24">
+          <div class="project card3d glass p-6 rounded-2xl" data-category="wordpress">
 
-<div class="max-w-7xl mx-auto px-6">
+            <h4 class="font-semibold text-lg mb-2">
+            Corporate Website
+            </h4>
 
-<h3 class="text-3xl font-bold text-center mb-10">
-Projects
-</h3>
+            <p class="text-sm opacity-80 mb-4">
 
+            Elementor based corporate redesign.
 
-<div class="flex justify-center gap-4 mb-10">
+            </p>
 
-<button class="filterBtn bg-white/20 px-4 py-2 rounded" data-filter="all">
-All
-</button>
+            <span class="text-xs bg-cyan-300/20 px-2 py-1 rounded">
+            WordPress
+            </span>
 
-<button class="filterBtn bg-white/20 px-4 py-2 rounded" data-filter="wordpress">
-WordPress
-</button>
+          </div>
 
-<button class="filterBtn bg-white/20 px-4 py-2 rounded" data-filter="frontend">
-Frontend
-</button>
 
-</div>
+          <div class="project card3d glass p-6 rounded-2xl" data-category="frontend">
 
+            <h4 class="font-semibold text-lg mb-2">
+            Landing Page UI
+            </h4>
 
+            <p class="text-sm opacity-80 mb-4">
 
-<div class="grid md:grid-cols-3 gap-8">
+            Tailwind landing page system.
 
+            </p>
 
-<!-- CARD -->
+            <span class="text-xs bg-cyan-300/20 px-2 py-1 rounded">
+            Tailwind
+            </span>
 
-<div class="project card3d glass p-6 rounded-2xl" data-category="wordpress">
+          </div>
 
-<h4 class="font-semibold text-lg mb-2">
-Corporate Website
-</h4>
 
-<p class="text-sm opacity-80 mb-4">
+          <div class="project card3d glass p-6 rounded-2xl" data-category="wordpress">
 
-Elementor based corporate redesign.
+            <h4 class="font-semibold text-lg mb-2">
+            WooCommerce Store
+            </h4>
 
-</p>
+            <p class="text-sm opacity-80 mb-4">
 
-<span class="text-xs bg-cyan-300/20 px-2 py-1 rounded">
-WordPress
-</span>
+            Custom checkout optimization.
 
-</div>
+            </p>
 
+            <span class="text-xs bg-cyan-300/20 px-2 py-1 rounded">
+            WooCommerce
+            </span>
 
-<div class="project card3d glass p-6 rounded-2xl" data-category="frontend">
+          </div>
 
-<h4 class="font-semibold text-lg mb-2">
-Landing Page UI
-</h4>
+        </div>
 
-<p class="text-sm opacity-80 mb-4">
+      </div>
 
-Tailwind landing page system.
+    </section>
 
-</p>
 
-<span class="text-xs bg-cyan-300/20 px-2 py-1 rounded">
-Tailwind
-</span>
 
-</div>
+    <!-- CONTACT -->
 
+    <section id="contact" class="py-24 text-center reveal">
 
-<div class="project card3d glass p-6 rounded-2xl" data-category="wordpress">
+      <h3 class="text-3xl font-bold mb-6">
+      Let's Work Together
+      </h3>
 
-<h4 class="font-semibold text-lg mb-2">
-WooCommerce Store
-</h4>
+      <a href="mailto:likhemayt@gmail.com"
+      class="bg-cyan-400 text-black px-8 py-3 rounded-lg font-semibold">
 
-<p class="text-sm opacity-80 mb-4">
+      Contact Me
 
-Custom checkout optimization.
+      </a>
 
-</p>
+    </section>
 
-<span class="text-xs bg-cyan-300/20 px-2 py-1 rounded">
-WooCommerce
-</span>
 
-</div>
 
+    <script>
 
-</div>
 
-</div>
+    /* MOBILE MENU */
 
-</section>
+    const menuBtn=document.getElementById("menuBtn")
+    const mobileMenu=document.getElementById("mobileMenu")
 
+    menuBtn.onclick=()=>mobileMenu.classList.toggle("hidden")
 
 
-<!-- CONTACT -->
 
-<section id="contact" class="py-24 text-center reveal">
+    /* DARK MODE */
 
-<h3 class="text-3xl font-bold mb-6">
-Let's Work Together
-</h3>
+    const toggle = document.getElementById("themeToggle")
+    const html = document.documentElement
+    const body = document.getElementById("body")
 
-<a href="mailto:likhemayt@gmail.com"
-class="bg-cyan-400 text-black px-8 py-3 rounded-lg font-semibold">
+    function enableDark(){
+      html.classList.add("dark")
+      body.classList.remove("gradient-bg")
+      body.classList.add("bg-gray-900")
+      toggle.innerHTML="☀️"
+      localStorage.setItem("theme","dark")
+    }
 
-Contact Me
+    function enableLight(){
+      html.classList.remove("dark")
+      body.classList.remove("bg-gray-900")
+      body.classList.add("gradient-bg")
+      toggle.innerHTML="🌙"
+      localStorage.setItem("theme","light")
+    }
 
-</a>
+    toggle.onclick=()=>{
+      if(html.classList.contains("dark")){
+        enableLight()
+      }else{
+        enableDark()
+      }
+    }
 
-</section>
+    if(localStorage.getItem("theme")==="dark"){
+      enableDark()
+    }
 
+    /* LOAD SAVED THEME */
 
+    if(localStorage.getItem("theme")==="dark"){
+      enableDark()
+    }
 
-<script>
 
 
-/* MOBILE MENU */
+    /* TYPING HERO */
 
-const menuBtn=document.getElementById("menuBtn")
-const mobileMenu=document.getElementById("mobileMenu")
+    const text=[
+    "WordPress Developer",
+    "Elementor Specialist",
+    "Frontend Developer",
+    "Freelancer"
+    ]
 
-menuBtn.onclick=()=>mobileMenu.classList.toggle("hidden")
+    let i=0
+    let j=0
+    let current=""
+    let isDeleting=false
 
+    function type(){
 
+    current=text[i]
 
-/* DARK MODE */
+    if(isDeleting){
+    j--
+    }else{
+    j++
+    }
 
-const toggle = document.getElementById("themeToggle")
-const html = document.documentElement
-const body = document.getElementById("body")
+    document.getElementById("typing").textContent=current.substring(0,j)
 
-function enableDark(){
-  html.classList.add("dark")
-  body.classList.remove("gradient-bg")
-  body.classList.add("bg-gray-900")
-  toggle.innerHTML="☀️"
-  localStorage.setItem("theme","dark")
-}
+    if(!isDeleting && j===current.length){
+    isDeleting=true
+    setTimeout(type,1000)
+    return
+    }
 
-function enableLight(){
-  html.classList.remove("dark")
-  body.classList.remove("bg-gray-900")
-  body.classList.add("gradient-bg")
-  toggle.innerHTML="🌙"
-  localStorage.setItem("theme","light")
-}
+    if(isDeleting && j===0){
+    isDeleting=false
+    i=(i+1)%text.length
+    }
 
-toggle.onclick=()=>{
-  if(html.classList.contains("dark")){
-    enableLight()
-  }else{
-    enableDark()
-  }
-}
+    setTimeout(type,isDeleting?50:100)
 
-if(localStorage.getItem("theme")==="dark"){
-  enableDark()
-}
+    }
 
-/* LOAD SAVED THEME */
+    type()
 
-if(localStorage.getItem("theme")==="dark"){
-  enableDark()
-}
 
 
+    /* PROJECT FILTER */
 
-/* TYPING HERO */
+    const filters=document.querySelectorAll(".filterBtn")
+    const projects=document.querySelectorAll(".project")
 
-const text=[
-"WordPress Developer",
-"Elementor Specialist",
-"Frontend Developer",
-"Freelancer"
-]
+    filters.forEach(btn=>{
 
-let i=0
-let j=0
-let current=""
-let isDeleting=false
+    btn.onclick=()=>{
 
-function type(){
+    let filter=btn.dataset.filter
 
-current=text[i]
+    projects.forEach(p=>{
 
-if(isDeleting){
-j--
-}else{
-j++
-}
+    if(filter==="all"||p.dataset.category===filter){
+    p.style.display="block"
+    }else{
+    p.style.display="none"
+    }
 
-document.getElementById("typing").textContent=current.substring(0,j)
+    })
 
-if(!isDeleting && j===current.length){
-isDeleting=true
-setTimeout(type,1000)
-return
-}
+    }
 
-if(isDeleting && j===0){
-isDeleting=false
-i=(i+1)%text.length
-}
+    })
 
-setTimeout(type,isDeleting?50:100)
 
-}
 
-type()
+    /* SCROLL REVEAL */
 
+    function reveal(){
 
+    document.querySelectorAll(".reveal").forEach(el=>{
 
-/* PROJECT FILTER */
+    let top=el.getBoundingClientRect().top
+    let windowHeight=window.innerHeight
 
-const filters=document.querySelectorAll(".filterBtn")
-const projects=document.querySelectorAll(".project")
+    if(top<windowHeight-100){
+    el.classList.add("active")
+    }
 
-filters.forEach(btn=>{
+    })
 
-btn.onclick=()=>{
+    }
 
-let filter=btn.dataset.filter
+    window.addEventListener("scroll",reveal)
 
-projects.forEach(p=>{
+    </script>
 
-if(filter==="all"||p.dataset.category===filter){
-p.style.display="block"
-}else{
-p.style.display="none"
-}
 
-})
-
-}
-
-})
-
-
-
-/* SCROLL REVEAL */
-
-function reveal(){
-
-document.querySelectorAll(".reveal").forEach(el=>{
-
-let top=el.getBoundingClientRect().top
-let windowHeight=window.innerHeight
-
-if(top<windowHeight-100){
-el.classList.add("active")
-}
-
-})
-
-}
-
-window.addEventListener("scroll",reveal)
-
-</script>
-
-
-</body>
+  </body>
 </html>
