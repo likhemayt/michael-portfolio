@@ -1,10 +1,10 @@
-# PixelThirtyOne Portfolio
+# Michael Mabunga Test Portfolio
 
 Modern developer portfolio built with TailwindCSS.
 
 ## Live Website
 
-https://pixelthirtyone.github.io
+https://likhemayt.github.io/michael-portfolio/
 
 ## Tech Stack
 
