@@ -14,37 +14,31 @@ const html = document.documentElement
 const body = document.getElementById("body")
 
 function enableDark(){
-    html.classList.add("dark")
-    body.classList.remove("gradient-bg")
-    body.classList.add("bg-gray-900")
-    toggle.innerHTML="☀️"
-    localStorage.setItem("theme","dark")
+  html.classList.add("dark")
+  body.classList.remove("gradient-bg")
+  body.classList.add("bg-gray-900")
+  toggle.innerHTML="☀️"
+  localStorage.setItem("theme","dark")
 }
 
 function enableLight(){
-    html.classList.remove("dark")
-    body.classList.remove("bg-gray-900")
-    body.classList.add("gradient-bg")
-    toggle.innerHTML="🌙"
-    localStorage.setItem("theme","light")
+  html.classList.remove("dark")
+  body.classList.remove("bg-gray-900")
+  body.classList.add("gradient-bg")
+  toggle.innerHTML="🌙"
+  localStorage.setItem("theme","light")
 }
 
 toggle.onclick=()=>{
-    if(html.classList.contains("dark")){
-        enableLight()
-    }else{
-        enableDark()
-    }
-}
-
-if(localStorage.getItem("theme")==="dark"){
+  if(html.classList.contains("dark")){
+    enableLight()
+  }else{
     enableDark()
+  }
 }
 
-/* LOAD SAVED THEME */
-
 if(localStorage.getItem("theme")==="dark"){
-      enableDark()
+  enableDark()
 }
 
 
