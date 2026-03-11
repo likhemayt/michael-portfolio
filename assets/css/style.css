@@ -1,0 +1,60 @@
+body{
+font-family: 'Montserrat', sans-serif;
+}
+
+/* animated gradient background */
+
+.gradient-bg{
+background: linear-gradient(-45deg,#4f46e5,#9333ea,#06b6d4,#3b82f6);
+background-size:400% 400%;
+animation: gradientMove 15s ease infinite;
+}
+
+@keyframes gradientMove{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+/* glassmorphism */
+
+.glass{
+backdrop-filter:blur(15px);
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.2);
+}
+
+/* floating hero */
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+}
+
+.float{
+animation:float 6s ease-in-out infinite;
+}
+
+/* scroll reveal */
+
+.reveal{
+opacity:0;
+transform:translateY(30px);
+transition:all .8s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* 3D card hover */
+
+.card3d{
+transform-style:preserve-3d;
+transition:transform .4s;
+}
+
+.card3d:hover{
+transform:rotateY(8deg) rotateX(6deg) scale(1.05);
+}
