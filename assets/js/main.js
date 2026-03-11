@@ -1,134 +1,135 @@
-/* MOBILE MENU */
+      /* MOBILE MENU */
 
-const menuBtn=document.getElementById("menuBtn")
-const mobileMenu=document.getElementById("mobileMenu")
+      const menuBtn=document.getElementById("menuBtn")
+      const mobileMenu=document.getElementById("mobileMenu")
 
-menuBtn.onclick=()=>mobileMenu.classList.toggle("hidden")
-
-
-
-/* DARK MODE */
-
-const toggle = document.getElementById("themeToggle")
-const html = document.documentElement
-const body = document.getElementById("body")
-
-function enableDark(){
-  html.classList.add("dark")
-  body.classList.remove("gradient-bg")
-  body.classList.add("bg-gray-900")
-  toggle.innerHTML="☀️"
-  localStorage.setItem("theme","dark")
-}
-
-function enableLight(){
-  html.classList.remove("dark")
-  body.classList.remove("bg-gray-900")
-  body.classList.add("gradient-bg")
-  toggle.innerHTML="🌙"
-  localStorage.setItem("theme","light")
-}
-
-toggle.onclick=()=>{
-  if(html.classList.contains("dark")){
-    enableLight()
-  }else{
-    enableDark()
-  }
-}
-
-if(localStorage.getItem("theme")==="dark"){
-  enableDark()
-}
-
-
-/* TYPING HERO */
-
-    const text=[
-    "WordPress Developer",
-    "Elementor Specialist",
-    "Frontend Developer",
-    "Freelancer"
-    ]
-
-    let i=0
-    let j=0
-    let current=""
-    let isDeleting=false
-
-function type(){
-
-    current=text[i]
-
-    if(isDeleting){
-        j--
-    }else{
-        j++
-    }
-
-    document.getElementById("typing").textContent=current.substring(0,j)
-
-    if(!isDeleting && j===current.length){
-        isDeleting=true
-        setTimeout(type,1000)
-    return
-    }
-
-    if(isDeleting && j===0){
-        isDeleting=false
-        i=(i+1)%text.length
-    }
-
-    setTimeout(type,isDeleting?50:100)
-
-}
-
-type()
+      menuBtn.onclick=()=>mobileMenu.classList.toggle("hidden")
 
 
 
-/* PROJECT FILTER */
+      /* DARK MODE */
 
-const filters=document.querySelectorAll(".filterBtn")
-const projects=document.querySelectorAll(".project")
+      const toggle = document.getElementById("themeToggle")
+      const html = document.documentElement
+      const body = document.getElementById("body")
 
-filters.forEach(btn=>{
+      function enableDark(){
+        html.classList.add("dark")
+        body.classList.remove("gradient-bg")
+        body.classList.add("bg-gray-900")
+        toggle.innerHTML="☀️"
+        localStorage.setItem("theme","dark")
+      }
 
-    btn.onclick=()=>{
+      function enableLight(){
+        html.classList.remove("dark")
+        body.classList.remove("bg-gray-900")
+        body.classList.add("gradient-bg")
+        toggle.innerHTML="🌙"
+        localStorage.setItem("theme","light")
+      }
 
-        let filter=btn.dataset.filter
+      toggle.onclick=()=>{
+        if(html.classList.contains("dark")){
+          enableLight()
+        }else{
+          enableDark()
+        }
+      }
 
-        projects.forEach(p=>{
-
-            if(filter==="all"||p.dataset.category===filter){
-                p.style.display="block"
-            }else{
-                p.style.display="none"
-            }
-
-        })
-
-    }
-
-})
+      if(localStorage.getItem("theme")==="dark"){
+        enableDark()
+      }
 
 
 
-/* SCROLL REVEAL */
+      /* TYPING HERO */
 
-function reveal(){
+      const text=[
+      "WordPress Developer",
+      "Elementor Specialist",
+      "Frontend Developer",
+      "Freelancer"
+      ]
 
-document.querySelectorAll(".reveal").forEach(el=>{
+      let i=0
+      let j=0
+      let current=""
+      let isDeleting=false
 
-let top=el.getBoundingClientRect().top
-let windowHeight=window.innerHeight
+      function type(){
 
-if(top<windowHeight-100){
-el.classList.add("active")
-}
+      current=text[i]
 
-})
+      if(isDeleting){
+      j--
+      }else{
+      j++
+      }
 
-}
+      document.getElementById("typing").textContent=current.substring(0,j)
 
-window.addEventListener("scroll",reveal)
+      if(!isDeleting && j===current.length){
+      isDeleting=true
+      setTimeout(type,1000)
+      return
+      }
+
+      if(isDeleting && j===0){
+      isDeleting=false
+      i=(i+1)%text.length
+      }
+
+      setTimeout(type,isDeleting?50:100)
+
+      }
+
+      type()
+
+
+
+      /* PROJECT FILTER */
+
+      const filters=document.querySelectorAll(".filterBtn")
+      const projects=document.querySelectorAll(".project")
+
+      filters.forEach(btn=>{
+
+      btn.onclick=()=>{
+
+      let filter=btn.dataset.filter
+
+      projects.forEach(p=>{
+
+      if(filter==="all"||p.dataset.category===filter){
+      p.style.display="block"
+      }else{
+      p.style.display="none"
+      }
+
+      })
+
+      }
+
+      })
+
+
+
+      /* SCROLL REVEAL */
+
+      function reveal(){
+
+      document.querySelectorAll(".reveal").forEach(el=>{
+
+      let top=el.getBoundingClientRect().top
+      let windowHeight=window.innerHeight
+
+      if(top<windowHeight-100){
+      el.classList.add("active")
+      }
+
+      })
+
+      }
+
+      window.addEventListener("scroll",reveal)
