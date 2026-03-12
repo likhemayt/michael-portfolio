@@ -1,243 +1,466 @@
 <!DOCTYPE html>
 <html lang="en" class="transition-colors duration-500">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Michael Portfolio</title>
+<title>PixelThirtyOne Portfolio</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com"></script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  </head>
+<style>
 
-  <body id="body" class="gradient-bg text-white min-h-screen transition-colors duration-500">
+body{
+font-family: 'Montserrat', sans-serif;
+}
 
+/* animated gradient background */
 
-    <!-- NAVBAR -->
+.gradient-bg{
+background: linear-gradient(-45deg,#4f46e5,#9333ea,#06b6d4,#3b82f6);
+background-size:400% 400%;
+animation: gradientMove 15s ease infinite;
+}
 
-    <header class="glass fixed w-full z-50">
+@keyframes gradientMove{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
 
-      <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+/* glassmorphism */
 
-        <h1 class="font-bold text-xl">
-        MichaelMabunga
-        </h1>
+.glass{
+backdrop-filter:blur(15px);
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.2);
+}
 
-        <nav class="hidden md:flex gap-8">
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </nav>
+/* floating hero */
 
-        <div class="flex items-center gap-4">
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+}
 
-          <button id="themeToggle">🌙</button>
+.float{
+animation:float 6s ease-in-out infinite;
+}
 
-          <button id="menuBtn" class="md:hidden text-2xl">
-          ☰
-          </button>
+/* scroll reveal */
 
-        </div>
+.reveal{
+opacity:0;
+transform:translateY(30px);
+transition:all .8s ease;
+}
 
-      </div>
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
 
+/* 3D card hover */
 
-      <div id="mobileMenu" class="hidden px-6 pb-6 space-y-3 md:hidden">
+.card3d{
+transform-style:preserve-3d;
+transition:transform .4s;
+}
 
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+.card3d:hover{
+transform:rotateY(8deg) rotateX(6deg) scale(1.05);
+}
 
-      </div>
+</style>
 
-    </header>
+</head>
 
+<body id="body" class="gradient-bg text-white min-h-screen transition-colors duration-500">
 
 
-    <!-- HERO -->
+<!-- NAVBAR -->
 
-    <section class="min-h-screen flex items-center">
+<header class="glass fixed w-full z-50">
 
-      <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 px-6">
+<div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
 
-      <div>
+<h1 class="font-bold text-xl">
+PixelThirtyOne
+</h1>
 
-        <h2 class="text-5xl font-bold mb-6">
-          Hi I'm  
-          <span class="text-cyan-300">Michael</span>
-        </h2>
+<nav class="hidden md:flex gap-8">
 
-        <h3 class="text-2xl mb-6">
-          <span id="typing"></span>
-        </h3>
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
 
-        <p class="opacity-80 mb-8">
-        I build high performance WordPress websites,
-        custom themes, and modern web interfaces.
-        </p>
+</nav>
 
-        <a href="#projects" class="bg-cyan-400 text-gray-900 px-6 py-3 rounded-lg font-semibold">View Projects</a>
+<div class="flex items-center gap-4">
 
-        </a>
+<button id="themeToggle">🌙</button>
 
-      </div>
+<button id="menuBtn" class="md:hidden text-2xl">
+☰
+</button>
 
+</div>
 
-        <div class="flex justify-center items-center">
+</div>
 
-          <div class="glass p-12 rounded-3xl float">
 
-            <img src="https://cdn-icons-png.flaticon.com/512/2721/2721297.png" width="150">
+<div id="mobileMenu" class="hidden px-6 pb-6 space-y-3 md:hidden">
 
-          </div>
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
 
-        </div>
+</div>
 
-      </div>
+</header>
 
-    </section>
 
 
+<!-- HERO -->
 
-    <!-- ABOUT -->
+<section class="min-h-screen flex items-center">
 
-    <section id="about" class="py-24 reveal">
+<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 px-6">
 
-      <div class="max-w-4xl mx-auto text-center px-6">
+<div>
 
-        <h3 class="text-3xl font-bold mb-6">About Me</h3>
+<h2 class="text-5xl font-bold mb-6">
 
-        <p class="opacity-80">
-        Freelance developer with 5+ years experience building
-        WordPress websites using Elementor, Divi,
-        and custom development.
-        Focused on performance, UX and scalable solutions.
-        </p>
+Hi I'm  
+<span class="text-cyan-300">Michael</span>
 
-      </div>
+</h2>
 
-    </section>
+<h3 class="text-2xl mb-6">
 
-    <!-- PROJECT FILTER -->
+<span id="typing"></span>
 
-    <section id="projects" class="py-24">
+</h3>
 
-      <div class="max-w-7xl mx-auto px-6">
+<p class="opacity-80 mb-8">
 
-        <h3 class="text-3xl font-bold text-center mb-10">
-        Projects
-        </h3>
+I build high performance WordPress websites,
+custom themes, and modern web interfaces.
 
+</p>
 
-        <div class="flex justify-center gap-4 mb-10">
+<a href="#projects" class="bg-cyan-400 text-gray-900 px-6 py-3 rounded-lg font-semibold">
 
-          <button class="filterBtn bg-white/20 px-4 py-2 rounded" data-filter="all">
-          All
-          </button>
+View Projects
 
-          <button class="filterBtn bg-white/20 px-4 py-2 rounded" data-filter="wordpress">
-          WordPress
-          </button>
+</a>
 
-          <button class="filterBtn bg-white/20 px-4 py-2 rounded" data-filter="frontend">
-          Frontend
-          </button>
+</div>
 
-        </div>
 
+<div class="flex justify-center items-center">
 
+<div class="glass p-12 rounded-3xl float">
 
-        <div class="grid md:grid-cols-3 gap-8">
+<img src="https://cdn-icons-png.flaticon.com/512/2721/2721297.png" width="150">
 
-          <!-- CARD -->
+</div>
 
-          <div class="project card3d glass p-6 rounded-2xl" data-category="wordpress">
+</div>
 
-            <h4 class="font-semibold text-lg mb-2">
-            Corporate Website
-            </h4>
+</div>
 
-            <p class="text-sm opacity-80 mb-4">
+</section>
 
-            Elementor based corporate redesign.
 
-            </p>
 
-            <span class="text-xs bg-cyan-300/20 px-2 py-1 rounded">
-            WordPress
-            </span>
+<!-- ABOUT -->
 
-          </div>
+<section id="about" class="py-24 reveal">
 
+<div class="max-w-4xl mx-auto text-center px-6">
 
-          <div class="project card3d glass p-6 rounded-2xl" data-category="frontend">
+<h3 class="text-3xl font-bold mb-6">
+About Me
+</h3>
 
-            <h4 class="font-semibold text-lg mb-2">
-            Landing Page UI
-            </h4>
+<p class="opacity-80">
 
-            <p class="text-sm opacity-80 mb-4">
+Freelance developer with 5+ years experience building
+WordPress websites using Elementor, Divi,
+and custom development.
 
-            Tailwind landing page system.
+Focused on performance, UX and scalable solutions.
 
-            </p>
+</p>
 
-            <span class="text-xs bg-cyan-300/20 px-2 py-1 rounded">
-            Tailwind
-            </span>
+</div>
 
-          </div>
+</section>
 
 
-          <div class="project card3d glass p-6 rounded-2xl" data-category="wordpress">
 
-            <h4 class="font-semibold text-lg mb-2">
-            WooCommerce Store
-            </h4>
+<!-- PROJECT FILTER -->
 
-            <p class="text-sm opacity-80 mb-4">
+<section id="projects" class="py-24">
 
-            Custom checkout optimization.
+<div class="max-w-7xl mx-auto px-6">
 
-            </p>
+<h3 class="text-3xl font-bold text-center mb-10">
+Projects
+</h3>
 
-            <span class="text-xs bg-cyan-300/20 px-2 py-1 rounded">
-            WooCommerce
-            </span>
 
-          </div>
+<div class="flex justify-center gap-4 mb-10">
 
-        </div>
+<button class="filterBtn bg-white/20 px-4 py-2 rounded" data-filter="all">
+All
+</button>
 
-      </div>
+<button class="filterBtn bg-white/20 px-4 py-2 rounded" data-filter="wordpress">
+WordPress
+</button>
 
-    </section>
+<button class="filterBtn bg-white/20 px-4 py-2 rounded" data-filter="frontend">
+Frontend
+</button>
 
+</div>
 
 
-    <!-- CONTACT -->
 
-    <section id="contact" class="py-24 text-center reveal">
+<div class="grid md:grid-cols-3 gap-8">
 
-      <h3 class="text-3xl font-bold mb-6">
-      Let's Work Together
-      </h3>
 
-      <a href="mailto:likhemayt@gmail.com"
-      class="bg-cyan-400 text-black px-8 py-3 rounded-lg font-semibold">
+<!-- CARD -->
 
-      Contact Me
+<div class="project card3d glass p-6 rounded-2xl" data-category="wordpress">
 
-      </a>
+<h4 class="font-semibold text-lg mb-2">
+Corporate Website
+</h4>
 
-    </section>
+<p class="text-sm opacity-80 mb-4">
 
+Elementor based corporate redesign.
 
-    <script src="/assets/js/main.js" defer></script>
+</p>
 
+<span class="text-xs bg-cyan-300/20 px-2 py-1 rounded">
+WordPress
+</span>
 
-  </body>
+</div>
+
+
+<div class="project card3d glass p-6 rounded-2xl" data-category="frontend">
+
+<h4 class="font-semibold text-lg mb-2">
+Landing Page UI
+</h4>
+
+<p class="text-sm opacity-80 mb-4">
+
+Tailwind landing page system.
+
+</p>
+
+<span class="text-xs bg-cyan-300/20 px-2 py-1 rounded">
+Tailwind
+</span>
+
+</div>
+
+
+<div class="project card3d glass p-6 rounded-2xl" data-category="wordpress">
+
+<h4 class="font-semibold text-lg mb-2">
+WooCommerce Store
+</h4>
+
+<p class="text-sm opacity-80 mb-4">
+
+Custom checkout optimization.
+
+</p>
+
+<span class="text-xs bg-cyan-300/20 px-2 py-1 rounded">
+WooCommerce
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- CONTACT -->
+
+<section id="contact" class="py-24 text-center reveal">
+
+<h3 class="text-3xl font-bold mb-6">
+Let's Work Together
+</h3>
+
+<a href="mailto:likhemay@gmail.com"
+class="bg-cyan-400 text-gray-900 px-8 py-3 rounded-lg font-semibold">
+
+Contact Me
+
+</a>
+
+</section>
+
+
+
+<script>
+
+
+/* MOBILE MENU */
+
+const menuBtn=document.getElementById("menuBtn")
+const mobileMenu=document.getElementById("mobileMenu")
+
+menuBtn.onclick=()=>mobileMenu.classList.toggle("hidden")
+
+
+
+/* DARK MODE */
+
+const toggle = document.getElementById("themeToggle")
+const html = document.documentElement
+const body = document.getElementById("body")
+
+function enableDark(){
+  html.classList.add("dark")
+  body.classList.remove("gradient-bg")
+  body.classList.add("bg-gray-900")
+  toggle.innerHTML="☀️"
+  localStorage.setItem("theme","dark")
+}
+
+function enableLight(){
+  html.classList.remove("dark")
+  body.classList.remove("bg-gray-900")
+  body.classList.add("gradient-bg")
+  toggle.innerHTML="🌙"
+  localStorage.setItem("theme","light")
+}
+
+toggle.onclick=()=>{
+  if(html.classList.contains("dark")){
+    enableLight()
+  }else{
+    enableDark()
+  }
+}
+
+if(localStorage.getItem("theme")==="dark"){
+  enableDark()
+}
+
+
+
+/* TYPING HERO */
+
+const text=[
+"WordPress Developer",
+"Elementor Specialist",
+"Frontend Developer",
+"Freelancer"
+]
+
+let i=0
+let j=0
+let current=""
+let isDeleting=false
+
+function type(){
+
+current=text[i]
+
+if(isDeleting){
+j--
+}else{
+j++
+}
+
+document.getElementById("typing").textContent=current.substring(0,j)
+
+if(!isDeleting && j===current.length){
+isDeleting=true
+setTimeout(type,1000)
+return
+}
+
+if(isDeleting && j===0){
+isDeleting=false
+i=(i+1)%text.length
+}
+
+setTimeout(type,isDeleting?50:100)
+
+}
+
+type()
+
+
+
+/* PROJECT FILTER */
+
+const filters=document.querySelectorAll(".filterBtn")
+const projects=document.querySelectorAll(".project")
+
+filters.forEach(btn=>{
+
+btn.onclick=()=>{
+
+let filter=btn.dataset.filter
+
+projects.forEach(p=>{
+
+if(filter==="all"||p.dataset.category===filter){
+p.style.display="block"
+}else{
+p.style.display="none"
+}
+
+})
+
+}
+
+})
+
+
+
+/* SCROLL REVEAL */
+
+function reveal(){
+
+document.querySelectorAll(".reveal").forEach(el=>{
+
+let top=el.getBoundingClientRect().top
+let windowHeight=window.innerHeight
+
+if(top<windowHeight-100){
+el.classList.add("active")
+}
+
+})
+
+}
+
+window.addEventListener("scroll",reveal)
+
+</script>
+
+
+</body>
 </html>
