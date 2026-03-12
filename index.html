@@ -9,6 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/styles.css">
 
   </head>
@@ -23,7 +24,7 @@
       <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
 
         <h1 class="font-bold text-xl">
-        PixelThirtyOne
+        MichaelMabunga
         </h1>
 
         <nav class="hidden md:flex gap-8">
@@ -214,21 +215,142 @@
 
     <!-- CONTACT -->
 
-    <section id="contact" class="py-24 text-center reveal">
+    <section id="contact" class="py-24 reveal">
 
-      <h3 class="text-3xl font-bold mb-6">
-      Let's Work Together
-      </h3>
+    <div class="max-w-5xl mx-auto px-6">
 
-      <a href="mailto:likhemay@gmail.com"
-      class="bg-cyan-400 text-gray-900 px-8 py-3 rounded-lg font-semibold">
-      Contact Me
-      </a>
+    <h3 class="text-3xl font-bold text-center mb-10">
+    Contact Me
+    </h3>
+
+    <div class="grid md:grid-cols-2 gap-10 glass p-10 rounded-2xl">
+
+    <!-- Contact Info -->
+
+    <div>
+    <h4 class="text-xl font-semibold mb-4">Let's Build Something</h4>
+
+    <p class="opacity-80 mb-6">
+    Have a project in mind or need a WordPress developer?
+    Send me a message and I'll get back to you.
+    </p>
+
+    <div class="space-y-3">
+    
+    <ul class="gap-15">
+      <ol><a href="mailto:likhemay@gmail.com">likhemay@gmail.com</a></ol>
+      <ol><a href="http://github.com/likhemayt" target="_blank" rel="noopener noreferrer">http://github.com/likhemayt</a></ol>
+      <ol><p>📍 Laguna, Philippines</p></ol>
+    </ul>
+
+
+    </div>
+
+    </div>
+
+    <!-- Contact Form -->
+
+    <form action="https://formspree.io/f/yourformid" method="POST" class="space-y-4">
+
+    <input
+    type="text"
+    name="name"
+    placeholder="Your Name"
+    required
+    class="w-full p-3 rounded bg-white/10 border border-white/20 focus:outline-none"
+    />
+
+    <input
+    type="email"
+    name="email"
+    placeholder="Your Email"
+    required
+    class="w-full p-3 rounded bg-white/10 border border-white/20 focus:outline-none"
+    />
+
+    <textarea
+    name="message"
+    rows="5"
+    placeholder="Your Message"
+    required
+    class="w-full p-3 rounded bg-white/10 border border-white/20 focus:outline-none"
+    ></textarea>
+
+    <button
+    type="submit"
+    class="bg-cyan-400 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:scale-105 transition"
+    >
+    Send Message
+    </button>
+
+    </form>
+
+    </div>
+
+    </div>
 
     </section>
 
     <script src="assets/js/main.js"></script>
 
+    <footer class="mt-20 border-t border-white/10">
+
+    <div class="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-8">
+
+    <!-- Brand -->
+
+    <div>
+    <h4 class="text-xl font-bold mb-3">
+    MichaelMabunga
+    </h4>
+
+    <p class="opacity-70">
+    Freelance WordPress Developer specializing in
+    Elementor, Divi and custom development.
+    </p>
+    </div>
+
+
+    <!-- Quick Links -->
+
+    <div>
+    <h4 class="font-semibold mb-3">Quick Links</h4>
+
+    <ul class="space-y-2 opacity-80">
+
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+
+    </ul>
+    </div>
+
+
+    <!-- Social -->
+
+    <div>
+    <h4 class="font-semibold mb-3">Connect</h4>
+
+    <div class="flex gap-4 text-xl">
+
+    <a href="#">🐙</a>
+    <a href="#">💼</a>
+    <a href="#">🐦</a>
+
+    </div>
+
+    </div>
+
+    </div>
+
+
+    <div class="text-center py-6 border-t border-white/10 opacity-70">
+
+    © 2026 Michael Mabunga
+
+    </div>
+
+    </footer>
 
   </body>
 
