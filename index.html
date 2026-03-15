@@ -12,8 +12,11 @@
 
   </head>
 
-  <body id="body" class="gradient-bg text-white min-h-screen transition-colors duration-500">
-
+  <body class="min-h-screen transition-all duration-500 
+    bg-gradient-to-br from-slate-100 to-slate-200 
+    text-gray-800
+    dark:from-gray-900 dark:to-black
+    dark:text-white">
 
     <!-- NAVBAR -->
 
@@ -35,11 +38,24 @@
 
         <div class="flex items-center gap-4">
 
-          <button id="themeToggle">🌙</button>
-
           <button id="menuBtn" class="md:hidden text-2xl">
           ☰
           </button>
+
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" id="themeToggle" class="sr-only peer">
+
+            <div class="w-16 h-8 bg-gray-300 dark:bg-gray-700 rounded-full 
+                        peer-checked:bg-indigo-500 transition-colors duration-300">
+            </div>
+
+            <div class="absolute left-1 top-1 w-6 h-6 bg-white rounded-full 
+                        flex items-center justify-center shadow-md
+                        transition-all duration-300 
+                        peer-checked:translate-x-8">
+              <i id="themeIcon" class="fa-solid fa-moon text-xs"></i>
+            </div>
+          </label>
 
         </div>
 
@@ -370,7 +386,7 @@
 
     <script>
       tailwind.config = {
-        darkMode: 'class'
+        darkMode: "class"
       }
     </script>
 
