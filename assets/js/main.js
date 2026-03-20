@@ -140,7 +140,7 @@ const modal = document.getElementById("successModal");
 const closeModal = document.getElementById("closeModal");
 
 form.addEventListener("submit", async (e) => {
-  e.preventDefault();
+  e.preventDefault(); // 🚨 THIS STOPS REDIRECT
 
   const data = new FormData(form);
 
@@ -154,25 +154,18 @@ form.addEventListener("submit", async (e) => {
     });
 
     if (response.ok) {
-      form.reset(); // clear form
-      modal.classList.remove("hidden"); // show modal
+      form.reset();
+      modal.classList.remove("hidden");
     } else {
-      alert("Something went wrong. Please try again.");
+      alert("Something went wrong.");
     }
 
   } catch (error) {
-    alert("Network error. Please try again.");
+    alert("Network error.");
   }
 });
 
 // Close modal
 closeModal.addEventListener("click", () => {
   modal.classList.add("hidden");
-});
-
-// Optional: close when clicking outside
-modal.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.classList.add("hidden");
-  }
 });
