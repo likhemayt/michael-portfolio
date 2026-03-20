@@ -140,7 +140,7 @@ const closeModal = document.getElementById("closeModal");
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  emailjs.sendForm("service_jv0d70q", "template_8uhuff8", this)
+  emailjs.sendForm("service_tsqkljx", "template_8uhuff8", this)
     .then(() => {
       form.reset();
       modal.classList.remove("hidden");
