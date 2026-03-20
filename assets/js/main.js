@@ -117,28 +117,21 @@ toggle.addEventListener("change", () => {
 /* SCROLL REVEAL */
 
 function reveal() {
-
   document.querySelectorAll(".reveal").forEach(el => {
-
     let top = el.getBoundingClientRect().top;
     let windowHeight = window.innerHeight;
 
     if (top < windowHeight - 100) {
       el.classList.add("active");
     }
-
   });
-
 }
 
-window.addEventListener("scroll", reveal); // <-- FIXED
-
+window.addEventListener("scroll", reveal);
 
 /* CONTACT FORM */
 
-(function () {
-  emailjs.init("75i6JgmkEFR0yNAin");
-})();
+emailjs.init("75i6JgmkEFR0yNAin");
 
 const form = document.getElementById("contactForm");
 const modal = document.getElementById("successModal");
@@ -147,21 +140,17 @@ const closeModal = document.getElementById("closeModal");
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  emailjs.sendForm(
-    "service_jv0d70q",
-    "template_8uhuff8",
-    this
-  )
-  .then(function () {
-    form.reset();
-    modal.classList.remove("hidden");
-  }, function (error) {
-    console.error("FAILED...", error);
-    alert("Failed to send message. Check console.");
-  });
+  emailjs.sendForm("service_jv0d70q", "template_8uhuff8", this)
+    .then(() => {
+      form.reset();
+      modal.classList.remove("hidden");
+    })
+    .catch((error) => {
+      console.error(error);
+      alert("Failed to send message.");
+    });
 });
 
-// Close modal
 closeModal.addEventListener("click", () => {
   modal.classList.add("hidden");
 });
