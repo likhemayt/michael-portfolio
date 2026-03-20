@@ -140,7 +140,7 @@ const modal = document.getElementById("successModal");
 const closeModal = document.getElementById("closeModal");
 
 form.addEventListener("submit", async (e) => {
-  e.preventDefault(); // 🚨 THIS STOPS REDIRECT
+  e.preventDefault();
 
   const data = new FormData(form);
 
@@ -153,19 +153,18 @@ form.addEventListener("submit", async (e) => {
       }
     });
 
+    const text = await response.text(); // 👈 capture raw response
+    console.log("RAW RESPONSE:", text);
+
     if (response.ok) {
       form.reset();
       modal.classList.remove("hidden");
     } else {
-      alert("Something went wrong.");
+      alert("Error: " + text); // 👈 show real error
     }
 
   } catch (error) {
+    console.error(error);
     alert("Network error.");
   }
-});
-
-// Close modal
-closeModal.addEventListener("click", () => {
-  modal.classList.add("hidden");
 });
