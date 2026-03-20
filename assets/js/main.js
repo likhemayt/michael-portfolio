@@ -135,36 +135,32 @@ toggle.addEventListener("change", () => {
 
 /* CONTACT FORM */
 
+(function () {
+  emailjs.init("75i6JgmkEFR0yNAin");
+})();
+
 const form = document.getElementById("contactForm");
 const modal = document.getElementById("successModal");
 const closeModal = document.getElementById("closeModal");
 
-form.addEventListener("submit", async (e) => {
+form.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  const data = new FormData(form);
+  emailjs.sendForm(
+    "service_jv0d70q",
+    "template_8uhuff8",
+    this
+  )
+  .then(function () {
+    form.reset();
+    modal.classList.remove("hidden");
+  }, function (error) {
+    console.error("FAILED...", error);
+    alert("Failed to send message. Check console.");
+  });
+});
 
-  try {
-    const response = await fetch("https://formspree.io/f/xojkbenk", {
-      method: "POST",
-      body: data,
-      headers: {
-        'Accept': 'application/json'
-      }
-    });
-
-    const text = await response.text(); // 👈 capture raw response
-    console.log("RAW RESPONSE:", text);
-
-    if (response.ok) {
-      form.reset();
-      modal.classList.remove("hidden");
-    } else {
-      alert("Error: " + text); // 👈 show real error
-    }
-
-  } catch (error) {
-    console.error(error);
-    alert("Network error.");
-  }
+// Close modal
+closeModal.addEventListener("click", () => {
+  modal.classList.add("hidden");
 });
