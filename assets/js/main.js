@@ -114,24 +114,25 @@ toggle.addEventListener("change", () => {
 
 
 
-      /* SCROLL REVEAL */
+/* SCROLL REVEAL */
 
-      function reveal(){
+function reveal() {
 
-      document.querySelectorAll(".reveal").forEach(el=>{
+  document.querySelectorAll(".reveal").forEach(el => {
 
-      let top=el.getBoundingClientRect().top
-      let windowHeight=window.innerHeight
+    let top = el.getBoundingClientRect().top;
+    let windowHeight = window.innerHeight;
 
-      if(top<windowHeight-100){
-      el.classList.add("active")
-      }
+    if (top < windowHeight - 100) {
+      el.classList.add("active");
+    }
 
-      })
+  });
 
-      }
+}
 
-      window.addEventListener("scroll",reveal)
+window.addEventListener("scroll", reveal); // <-- FIXED
+
 
 /* CONTACT FORM */
 
