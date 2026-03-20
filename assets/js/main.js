@@ -132,3 +132,47 @@ toggle.addEventListener("change", () => {
       }
 
       window.addEventListener("scroll",reveal)
+
+/* CONTACT FORM */
+
+const form = document.getElementById("contactForm");
+const modal = document.getElementById("successModal");
+const closeModal = document.getElementById("closeModal");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const data = new FormData(form);
+
+  try {
+    const response = await fetch("https://formspree.io/f/xojkbenk", {
+      method: "POST",
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      form.reset(); // clear form
+      modal.classList.remove("hidden"); // show modal
+    } else {
+      alert("Something went wrong. Please try again.");
+    }
+
+  } catch (error) {
+    alert("Network error. Please try again.");
+  }
+});
+
+// Close modal
+closeModal.addEventListener("click", () => {
+  modal.classList.add("hidden");
+});
+
+// Optional: close when clicking outside
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.classList.add("hidden");
+  }
+});
